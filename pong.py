@@ -1,6 +1,9 @@
 import pygame
 from settings import *
 from ball import Ball
+import random
+
+
 
 pygame.init()
 
@@ -14,10 +17,8 @@ clock = pygame.time.Clock()
 
 
 balls = [
-    Ball(200, 300, 25, 5, 5),
-    Ball(400, 300, 25, 5, 5),
-    Ball(400, 300, 25, 5, 5),
-    Ball(400, 300, 25, 5, 5),
+    Ball(random.randint(0, SCREEN_WIDTH), random.randint(0, SCREEN_HEIGHT), random.randint(5, 25), random.randint(1, 10), random.randint(1,10)),
+
 
 ]
 
@@ -29,10 +30,10 @@ while running:
 
     screen.fill((0,0,0))
 
-    for i in range(0, len(balls)):
-        balls[i].draw()
-        balls[i].move()
-        balls[i].wall_collision()
+    for i in balls:
+        i.draw()
+        i.move()
+        i.wall_collision()
 
 
 
